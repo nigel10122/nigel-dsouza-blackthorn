@@ -1,0 +1,95 @@
+<main class="container">
+    <div class="content">
+       
+        <section>
+            <div>
+                <a href="#" routerLink="/attendees" style="text-decoration: none; color: black;"><b><-- CU Alumni Weekend</b></a>
+            </div>
+            <br><br>
+            <div class="book-tickets">
+           
+            <div *ngFor="let ticket of data.tickets; let i = index">
+                <h4>{{ticket.ticketType}}</h4>
+                <p>{{ticket.ticketDesc}}</p>
+                <p class="sale-time">{{ticket.saleTime}}</p>
+                <div class="add-ticket">
+                        <p class="display-inline" *ngIf="ticket.price === 'Free'"><b>{{ticket.price}}</b></p>
+                        <p class="display-inline" *ngIf="ticket.price != 'Free'"><b>${{ticket.price}}</b></p>                           
+                        <select class="display-inline" (change)='onOptionsSelected(i, $event, ticket.ticketType, ticket.price)'>
+                            <option *ngFor="let item of options(10)" value="{{item}}">{{item}}</option>
+                        </select>
+              
+                </div>
+                <hr>
+            </div>
+            <div>
+                <h4>{{data.donate.title}}</h4>
+                <p>{{data.donate.desc}}</p>
+                <p>{{data.donate.donate}}</p>
+                <input type="button" class="display-inline" *ngFor="let amount of data.donate.fixedamount" value="${{amount}}"
+                (click)="onSelectDonations($event)">
+                <input class="display-inline" type="text" placeholder="{{data.donate.customAmount}}"
+                (input)="onSelectDonations($event)">
+            </div>
+            <hr>
+            <div *ngFor="let book of data.books; let i = index;" class="book-flex">
+                <div>
+                    <img src="../../assets/images/book.JPG" style="width: 100px;">
+                </div>
+                <div>
+                    <h4>{{book.bookName}}</h4>
+                    <p>{{book.bookDesc}}</p>
+                    <p class="display-inline"><b>${{book.price}}</b></p>
+                    <select class="display-inline" (change)='onOptionsSelected(i, $event, book.bookName, book.price)'>
+                    <option *ngFor="let item of options(10)" value="{{item}}">{{item}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        </section>
+        <section class="checkout">
+            <br><br><br>
+            <div class="order-summary">
+               
+                    <h4>Order Summary</h4>
+                    <div *ngFor="let order of orderSummary" class="summary">
+                    <p class = "display-inline">{{order.ticketQuantity}}x</p>
+                    <p class = "display-inline">{{order.ticketType}}</p>
+                    <p class = "display-inline">${{order.ticketPrice}}</p>
+                    </div>
+               
+                <hr>
+                <h4>Subtotal</h4>
+                <div>
+                    <p class = "display-inline-subtotal">Subtotal</p>
+                    <p class = "display-inline-subtotal">${{subTotal}}</p>
+                 
+                </div>
+                <div>
+                    <p class = "display-inline-taxes">Taxes</p>
+                    <p class = "display-inline-taxes">${{taxes}}</p>
+                </div>
+                <hr>
+                <p class = "display-inline-total"><b>Total</b></p>
+                <p class = "display-inline-total"><b>${{getTotal(taxes,subTotal)}}</b></p>
+                <br><br>
+                <a href="#" (click) = "haveAPromoCode()">Have a promocode?</a>
+                <br><br>
+                <div *ngIf="data.couponInput == true" style="display: inline;">
+                    <input type="text" style="width: 100px;" placeholder="Promo Code">
+                    &nbsp;
+                    <button style="border: 2px solid #39cca5; color: #39cca5;"><b>Apply</b></button>
+                   
+                </div>
+            </div>
+            <br>
+            <div>
+                <button class="checkout-btn" (click) = "onCheckOut()">Checkout</button>
+            </div>
+        </section>
+    </div>
+</main>
+
+
+
+
