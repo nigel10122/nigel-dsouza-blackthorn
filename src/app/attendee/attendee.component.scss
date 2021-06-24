@@ -1,0 +1,136 @@
+.container{
+    padding: 1rem 1rem 1rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    display: flex;
+    direction: row;
+  
+}
+
+.content > section{
+    margin: 1%;
+}
+
+
+
+.card{
+    background-color: #fff;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 5px 12px 0 rgba(42, 51, 83, 0.12), 0px 0px 5px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    padding: 2rem 2rem 2rem 2rem;
+    width: 46rem;
+
+  .flex{
+      display: flex;
+      flex-direction: row;
+  }
+}
+
+.card-flex {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.card-flex > div{
+    margin: 1%;
+}
+
+
+.display-inline{
+    display: inline;
+    margin-right: 1.5%;
+}
+
+.display-inline-subtotal{
+    display: inline;
+    margin-right: 8.1rem;
+}
+
+.display-inline-taxes{
+    display: inline;
+    margin-right: 9.6rem;
+}
+
+
+.display-inline-total{
+    display: inline;
+    margin-right: 9.9rem;
+    text-decoration: bold;
+}
+
+
+.input-below{
+    width:22.2rem
+}
+
+.summary {
+    display: grid;
+    grid-template-columns: auto 11rem auto auto;
+    grid-gap: 0;
+    padding: 0;
+    text-align: justify;
+  }
+  
+  .summary > p {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 0;
+  }
+
+  .checkout{
+    width: 20rem;
+}
+
+.checkout-btn{
+    width: 20rem;
+    border-radius: 0.5rem;
+    height: 3rem;
+    font-weight: 600;
+    color: white;
+    background-color: #0EB58A ;
+    border: none;
+}
+
+.order-summary{
+    background-color: #fff;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    box-shadow: 0px 5px 12px 0 rgba(42, 51, 83, 0.12), 0px 0px 5px rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s;
+    padding: 2rem 2rem 2rem 2rem;
+
+}
+
+
+button, input, select{
+    line-height:1rem;
+    overflow:hidden;
+    padding:.5rem 1rem;
+    border:1px solid transparent;
+    border-radius:.25rem;
+    cursor:pointer;
+    text-align:center;
+    background-color:var(--btn-color);
+    border-color:var(--btn-border-color);
+    color:var(--btn-fg);
+    font-size:.75rem;
+    letter-spacing:.03rem;
+    text-transform:uppercase;
+    font-family:Montserrat;
+    min-width:2rem;
+    user-select:none;
+    margin-bottom:1rem;
+}

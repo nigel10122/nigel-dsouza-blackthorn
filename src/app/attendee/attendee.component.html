@@ -1,0 +1,120 @@
+ <main class="container">
+  <div class="content">
+    <section>
+      <div>
+        <a href="#"  routerLink="/" style="text-decoration: none; color: black;"><b><-- Back</b></a>
+    </div>
+    <br><br>
+      <div class="form-details">
+      <div class="timeline-wrapper">
+ 
+      </div>
+
+
+      <div class="card">
+        <h4>Tickets</h4>
+        <div class="flex">
+        <div>
+          <img src="../../assets/images/ticket.JPG" style="width: 50px;">
+        </div>
+        &nbsp;&nbsp;&nbsp;
+        <div>
+       
+        <h5>In a rush?</h5>
+        <p>Register your tickets now or after checking out. Your choice.</p>
+        <a href="#" style="float: right;">Fill this out later</a>
+      </div>
+    </div>
+      </div>
+      <div *ngFor="let order of freeTickets(); let i = index;" class="card">  
+        <div *ngIf="order.ticketPrice === 0">
+          <!-- <div class="card">
+            <div> -->
+          <h4>Attendee {{i+1}} Free Ticket</h4>
+          <input type="text" class="display-inline" placeholder="First Name *" />
+          <input type="text" class="display: inline;" placeholder="Last Name *" />
+          <br>
+          <input type="text" class = "input-below" placeholder="Email Name *" />
+
+          <h5>Would you like to recieve the branded connections and other e-communications from ths us?</h5>
+      
+          <input type="radio" value="Yes" name="Yes">
+          <label for="Yes"> Yes</label>
+          <br>
+          <input type="radio" value="No" name="No">
+          <label for="No">No</label>
+
+        </div>
+      </div>
+      <div *ngFor="let order of vipTickets(); let i = index" class="card">
+        <div *ngIf="order.ticketPrice > 0 ">
+            <!-- <div class="card">
+                <div> -->
+          <h4>Attendee {{i+1}} Alumni Vip Ticket</h4>
+          <input type="text" class="display-inline" placeholder="First Name *" />
+          <input type="text" class="display-inline" placeholder="Last Name *" />
+          <br>
+          <input type="text" class = "input-below" placeholder="Email Name *" />
+          <input type="text" class = "input-below" placeholder="Job Title *" />
+          <input type="text" class = "input-below" placeholder="Company *" />
+
+          <h5>Would you like to recieve the branded connections and other e-communications from ths us?</h5>
+          <input type="radio" value="Yes" name="Yes">
+          <label for="Yes"> Yes</label>
+          <br>
+          <input type="radio" value="No" name="No">
+          <label for="No">No</label>
+        </div>
+      </div>
+    </div>
+    </section>
+
+    <section class="checkout">
+      <br><br><br>
+      <div class="order-summary">
+
+        <h4>Order Summary</h4>
+        <div *ngFor="let order of initiateState()[0].orderSummary" class="summary">
+          <p class="display-inline">{{order.ticketQuantity}}x</p>
+          <p class="display-inline">{{order.ticketType}}</p>
+          <p class="display-inline">${{order.ticketPrice}}</p>
+          <br><br>
+      
+        </div>
+        <a  style="color: rgb(70, 124, 241); cursor: pointer;" (click) = "Edit()">Edit</a>
+        <hr>
+        <h4>Subtotal</h4>
+        <div>
+          <p class="display-inline-subtotal">Subtotal</p>
+          <p class="display-inline-subtotal">${{initiateState()[0].subTotal}}</p>
+
+        </div>
+        <div>
+          <p class="display-inline-taxes">Taxes</p>
+          <p class="display-inline-taxes">${{initiateState()[0].taxes}}</p>
+        </div>
+        <hr>
+        <p class="display-inline-total"><b>Total</b></p>
+        <p class="display-inline-total">${{initiateState()[0].total}}</p>
+        <br><br>
+      <a (click) = "PromoCode()" style="color: rgb(70, 124, 241); cursor: pointer;">Have a promocode?</a>
+      <br><br>
+      <div *ngIf="couponInput == true" style="display: inline;">
+          <input type="text" style="width: 100px;" placeholder="Promo Code">
+          &nbsp;
+          <button style="border: 2px solid #39cca5; color: #39cca5;"><b>Apply</b></button>
+         
+      </div>
+      </div>
+      
+      <br>
+      <div>
+        <button class="checkout-btn">Review Session</button>
+      </div>
+    </section>
+
+  </div>
+
+</main> 
+
+ 
